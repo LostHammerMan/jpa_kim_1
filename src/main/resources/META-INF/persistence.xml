@@ -14,7 +14,10 @@
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
             <property name="hibernate.use_sql_comments" value="true"/>
-<!--            <property name="hbm2ddl.auto" value="create"/>-->
+
+<!--            해당 batch_size 만큼 모아서 쿼리 한번에 날림 - JPA 성능 관련-->
+            <property name="hibernate.jdbc.batch_size" value="10"/>
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
         </properties>
     </persistence-unit>
 </persistence>

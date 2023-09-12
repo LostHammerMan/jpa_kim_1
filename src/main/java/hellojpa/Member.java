@@ -5,8 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "member")
+@Entity // JPA 가 관리하는 객체
+@Table(name = "MBR")
 public class Member {
 
     @Id
@@ -30,4 +30,15 @@ public class Member {
     public void setName(String name) {
         this.name = name;
     }
+
+    // jpa 는 내부적으로 reflection 사용 --> 동적으로 객체 생성 필요 -> 기본 생성자 필요
+    public Member() {
+    }
+
+    public Member(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+
 }
