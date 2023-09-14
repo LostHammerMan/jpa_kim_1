@@ -35,7 +35,7 @@ public class JpaMain {
             // 영속 상태
             Member findMember = em.find(Member.class, 150L);
             // dirty checking
-            findMember.setName("aaaa");
+//            findMember.setName("aaaa");
 
             // 준영속 상태로 전환 --> tx.commit() 시점에 아무일도 일어나지 않음
 //            em.detach(findMember);
@@ -46,14 +46,14 @@ public class JpaMain {
 //                em.update(findMember);
 //            }
 
-            System.out.println("=======================");
+//            System.out.println("=======================");
 //            System.out.println("findMember.Name  = " + findMember.getName());
 //            member.setId(101L);
 //            member.setName("helloJPAB"); // 비영속 상태
 //
 //            System.out.println("===== Before =========");
 //            em.persist(member); // 영속 상태
-            System.out.println("===== After =======");
+//            System.out.println("===== After =======");
 
             // 조회시 select 쿼리 없음
             // 1차 캐시에서 조회하기 때문

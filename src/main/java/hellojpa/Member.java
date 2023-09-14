@@ -1,19 +1,51 @@
 package hellojpa;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Date;
 
+//@Table(name = "MBR", uniqueConstraints = {@UniqueConstraint(name = "NAME_AGE_UNIQUE",
+//        columnNames = {"NAME", "AGE"})})
 @Entity // JPA 가 관리하는 객체
-@Table(name = "MBR")
 public class Member {
 
     @Id
     private Long id;
 
+    @Column(name = "name")
+    private String username;
+
+    private Integer age;
+
+    @Enumerated(EnumType.STRING)
+    private RoleType roleType;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createDate;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date lastModifiedDate;
+
+    @Lob
+    private String description;
+
+    @Transient // DB 랑 관계없이 메모리에서만 계산하고 싶을떄
+    private int temp;
+
+    public Member(){}
+
+
+
+
+
+   /* @Id
+    private Long id;
+
 //    @Column(name = "username")
+    @Column(nullable = false, length = 10, unique = true)
     private String name;
+    private int oooo; // 테이블에 존재하지 않는 필드이므로 missing column에러 발생
+
+//    private int age;
 
     public Long getId() {
         return id;
@@ -38,7 +70,7 @@ public class Member {
     public Member(Long id, String name) {
         this.id = id;
         this.name = name;
-    }
+    }*/
 
 
 }
